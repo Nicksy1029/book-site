@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн-Библиотека</title>
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+</head>
+<body>
+
+    <header class="header">
+        <a href="{% url 'home_page' %}" class="header-logo">Онлайн-Библиотека</a>
+        <nav class="header-nav">
+            <a href="{% url 'login_page' %}" class="link-login">Войти</a>
+            <a href="{% url 'register_page' %}" class="btn-register">Регистрация</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1 class="hero-title">Онлайн-Библиотека</h1>
+        <p class="hero-text">
+            Платформа для поиска, чтения и публикации технической и учебной литературы.
+            Скачивайте книги в формате PDF или делитесь своими знаниями с сообществом.
+        </p>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог книг — Онлайн Библиотека</title>
+    <link rel="stylesheet" href="{% static 'css/library.css' %}">
+</head>
+<body>
+
+<!-- Шапка сайта -->
+<header class="navbar">
+    <div class="logo">Онлайн-Библиотека</div>
+    <div class="user-menu">
+        <span id="user-role-badge" class="badge"></span>
+        <span id="username-display"></span>
+        <button id="add-book-btn" class="btn btn-primary hidden">+ Добавить книгу</button>
+        <button id="profile-btn" class="btn btn-secondary">Профиль</button>
+        <button id="logout-btn" class="btn btn-secondary">Выйти</button>
+    </div>
+</header>
+
+<!-- Главный контейнер -->
+<main class="container">
+
+    <!-- Панель поиска и фильтрации -->
+    <section class="filter-section">
+        <input type="text" id="search-input" placeholder="Поиск по названию или автору...">
+        <select id="genre-select">
+            <option value="">Все жанры</option>
+        </select>
+    </section>
+
+    <!-- Сетка книг (заполняется через JS) -->
+    <section class="books-grid" id="books-container">
+        <!-- Сюда JS будет подгружать карточки -->
+    </section>
+
+</main>
+
+<!-- Модальное окно загрузки книги (для авторов) -->
+<div id="upload-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Добавить новую книгу</h2>
+        <form id="upload-book-form">
+            <div class="form-group">
+                <label>Название</label>
+                <input type="text" id="book-title" required>
+            </div>
+            <div class="form-group">
+                <label>Жанр</label>
+                <select id="book-genre" required></select>
+            </div>
+            <div class="form-group">
+                <label>Описание</label>
+                <textarea id="book-description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Файл PDF</label>
+                <input type="file" id="book-file" accept=".pdf" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label for="book-cover">Обложка книги (картинка):</label>
+                <input type="file" id="book-cover" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить на модерацию</button>
+        </form>
+    </div>
+</div>
+
+<div id="profile-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-btn" id="close-profile-modal">&times;</span>
+        <h2>Мой профиль</h2>
+        <div style="margin-top: 16px; font-size: 15px; line-height: 1.8;">
+            <p><strong>Имя пользователя:</strong> <span id="profile-username"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <p><strong>Роль:</strong> <span id="profile-role"></span></p>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/library.js' %}"></script>
+</body>
+</html>

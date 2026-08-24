@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+.env
+.venv/
+.idea
+
+.pylintrc
+__pycache__/
+
